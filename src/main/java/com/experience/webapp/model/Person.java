@@ -3,14 +3,21 @@ package com.experience.webapp.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "contacts")
 public class Person {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "surname")
     private String surname;
+
+    @Column(name = "phoneNumber")
     private String phoneNumber;
 
     public Person(){
@@ -52,15 +59,5 @@ public class Person {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
     }
 }
