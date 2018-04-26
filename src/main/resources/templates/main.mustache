@@ -1,5 +1,21 @@
 <html>
 <body>
-<div>{{some}}</div>
+    <div>
+        <form method="post">
+            <input type="text" name="name" placeholder="Enter name" />
+            <input type="text" name="surname" placeholder="Enter surname" />
+            <input type="text" name="phoneNumber" placeholder="Enter phoneNumber" />
+            <button type="submit">Add contact</button>
+        </form>
+    </div>
+    <div>Contacts list</div>
+    {{#contacts}}
+        <div>
+            <b>{{id}}</b>
+            <span>{{name}}</span>
+            <span>{{surname}}</span>
+            <span>{{phoneNumber}}</span>
+        </div>
+    {{/contacts}}
 </body>
 </html>
