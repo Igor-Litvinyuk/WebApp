@@ -17,16 +17,16 @@ public class Person {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "phoneNumber")
-    private String phoneNumber;
+    @Column(name = "telephone")
+    private String telephone;
 
     public Person(){
     }
 
-    public Person(String name, String surname, String phoneNumber) {
+    public Person(String name, String surname, String telephone) {
         this.name = name;
         this.surname = surname;
-        this.phoneNumber = phoneNumber;
+        this.telephone = telephone;
     }
 
     public Integer getId() {
@@ -53,11 +53,11 @@ public class Person {
         this.surname = surname;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 }

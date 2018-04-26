@@ -30,8 +30,8 @@ public class GreetingController {
     }
 
     @PostMapping
-    public String addContact(@RequestParam String name, @RequestParam String surname, @RequestParam String phoneNumber, Map<String, Object> model){
-        Person person = new Person(name, surname, phoneNumber);
+    public String addContact(@RequestParam String name, @RequestParam String surname, @RequestParam String telephone, Map<String, Object> model){
+        Person person = new Person(name, surname, telephone);
         personRepository.save(person);
         Iterable<Person> contacts = personRepository.findAll();
         model.put("contacts", contacts);
