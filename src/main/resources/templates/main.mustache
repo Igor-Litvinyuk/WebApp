@@ -9,6 +9,14 @@
         </form>
     </div>
     <div>Contacts list</div>
+    <form method="post" action="nameFilter">
+        <input type="text" name="nameFilter">
+        <button type="submit">Find by name</button>
+    </form>
+    <form method="post" action="surnameFilter">
+        <input type="text" name="surnameFilter">
+        <button type="submit">Find by surname</button>
+    </form>
     {{#contacts}}
         <div>
             <b>{{id}}</b>

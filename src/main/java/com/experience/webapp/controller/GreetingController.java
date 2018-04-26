@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -34,6 +35,32 @@ public class GreetingController {
         Person person = new Person(name, surname, phoneNumber);
         personRepository.save(person);
         Iterable<Person> contacts = personRepository.findAll();
+        model.put("contacts", contacts);
+        return "main";
+    }
+
+    @PostMapping("nameFilter")
+    public String nameFilter(@RequestParam String nameFilter, Map<String, Object> model){
+        Iterable<Person> contacts;
+        if(nameFilter != null && !nameFilter.isEmpty()){
+            contacts = personRepository.findByName(nameFilter);
+        }
+        else {
+            contacts = personRepository.findAll();
+        }
+        model.put("contacts", contacts);
+        return "main";
+    }
+
+    @PostMapping("surnameFilter")
+    public String surnameFilter(@RequestParam String surnameFilter, Map<String, Object> model){
+        Iterable<Person> contacts;
+        if(surnameFilter != null && !surnameFilter.isEmpty()){
+            contacts = personRepository.findBySurname(surnameFilter);
+        }
+        else {
+            contacts = personRepository.findAll();
+        }
         model.put("contacts", contacts);
         return "main";
     }
