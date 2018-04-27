@@ -1,20 +1,29 @@
 <html>
 <body>
     <div>
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+    <div>
         <form method="post">
             <input type="text" name="name" placeholder="Enter name" />
             <input type="text" name="surname" placeholder="Enter surname" />
             <input type="text" name="telephone" placeholder="Enter telephone" />
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
             <button type="submit">Add contact</button>
         </form>
     </div>
     <div>Contacts list</div>
     <form method="post" action="nameFilter">
         <input type="text" name="nameFilter">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
         <button type="submit">Find by name</button>
     </form>
     <form method="post" action="surnameFilter">
         <input type="text" name="surnameFilter">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
         <button type="submit">Find by surname</button>
     </form>
     {{#contacts}}
