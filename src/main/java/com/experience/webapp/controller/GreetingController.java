@@ -15,21 +15,19 @@ public class GreetingController {
     @Autowired
     private PersonRepository personRepository;
 
-    @GetMapping("/greeting")
-    public String greeting(
-            @RequestParam(name="name", required=false, defaultValue="World") String name, Map<String, Object> model) {
-        model.put("name", name);
+    @GetMapping("/")
+    public String greeting(Map<String, Object> model) {
         return "greeting";
     }
 
-    @GetMapping
+    @GetMapping("/main")
     public String main(Map<String, Object> model){
         Iterable<Person> contacts = personRepository.findAll();
         model.put("contacts", contacts);
         return "main";
     }
 
-    @PostMapping
+    @PostMapping("/main")
     public String addContact(@RequestParam String name, @RequestParam String surname, @RequestParam String telephone, Map<String, Object> model){
         Person person = new Person(name, surname, telephone);
         personRepository.save(person);
